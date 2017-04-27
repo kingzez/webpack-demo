@@ -22,8 +22,13 @@ module.exports = {
             },
             {
                test: /\.css$/,
-               loader: 'style-loader!css-loader?importLoaders=1!postcss-loader',
+               loader: 'style!css?importLoaders=1!postcss',
             }
+            // ,
+            // {
+            //     test: /\.less/,
+            //     loader: 'style!c'
+            // }
         ]
     },
     postcss: [
