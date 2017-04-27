@@ -1,31 +1,25 @@
-title: webpack 基础配置纪实
-date: 2017-04-27 16:37:08
-categories: webpack
-tags: webpack
----
-
-webpack基础配置纪实
+# webpack基础配置纪实
 <!--more-->
 ## 配置
 
 ### entry 打包入口配置
 接受三种方式：string， array， object
 
-```
+```javascript
 module.exports = {
     entry: './src/main.js'
     ...
 }
 ```
 
-```
+```javascript
 module.exports = {
     entry: ['./src/main.js', './src/test.js']
     ...
 }
 ```
 
-```
+```javascript
 module.exports = {
     entry: {
         main: './src/main.js',
@@ -37,7 +31,7 @@ module.exports = {
 
 ### output 打包导出配置
 
-```
+```javascript
 module.exports = {
     entry: {
         main: './src/main.js',
@@ -67,13 +61,13 @@ html-webpack-plugin 自动化生成项目中的html页面
 
 通过npm安装
 
-```
+```bash
 $ npm install html-webpack-plugin --save-dev
 ```
 
 在webpack.config.js中
 
-```
+```javascript
 var htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -118,7 +112,7 @@ module.exports = {
 
 index.html模板文件
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,4 +143,5 @@ index.html模板文件
 >- 涉及webpack源码的[行内引入js](https://github.com/jantimon/html-webpack-plugin/blob/master/examples/inline/template.jade#L10)
 
 至此工程目录结构为
+
 ![](http://7xkghm.com1.z0.glb.clouddn.com/image/blog/webpack-demo-1.png)
