@@ -43,7 +43,7 @@ module.exports = {
                 loaders: [
                     'url-loader?limit=1000&name=assets/[name]-[hash:5].[ext]',
                     'image-webpack'
-                    ],
+                    ]
             }
         ]
     },
