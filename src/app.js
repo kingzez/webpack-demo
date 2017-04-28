@@ -5,7 +5,10 @@ const App = function() {
     var dom = document.querySelector('#app');
     var layer = new Layer();
     
-    dom.innerHTML = layer.tpl;
+    dom.innerHTML = layer.tpl({
+        name: 'kingzez',
+        arr: ['apple', 'xiaomi', 'oppo']
+    });
 }
 
 new App()

@@ -23,6 +23,10 @@ module.exports = {
                 loader: 'html-loader'
             },
             {
+                test: /\.tpl/,
+                loader: 'ejs-loader'
+            },
+            {
                 test: /\.css$/,
                 loader: 'style!css?importLoaders=1!postcss'
             },
