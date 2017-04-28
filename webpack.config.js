@@ -9,26 +9,23 @@ module.exports = {
         filename: 'js/[name].bundle.js'
     },
     module: {
-        loaders: [
-            {
+        loaders: [{
                 test: /\.js$/,
                 loader: 'babel',
-                // include: './src',
-                include: path.resolve(__dirname, 'src'),                
+                include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),
                 query: {
                     presets: ['latest']
                 }
             },
             {
-               test: /\.css$/,
-               loader: 'style!css?importLoaders=1!postcss',
+                test: /\.css$/,
+                loader: 'style!css?importLoaders=1!postcss'
+            },
+            {
+                test: /\.less$/,
+                loader: 'style!css!postcss!less'
             }
-            // ,
-            // {
-            //     test: /\.less/,
-            //     loader: 'style!c'
-            // }
         ]
     },
     postcss: [
