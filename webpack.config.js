@@ -1,41 +1,44 @@
 var htmlWebpackPlugin = require('html-webpack-plugin');
-
+var path = require('path');
 
 module.exports = {
-    // context: __dirname,
-    entry: {
-        main: './src/script/main.js',
-        a: './src/script/a.js',
-        b: './src/script/b.js',
-        c: './src/script/c.js'         
-    },
+    context: __dirname,
+    entry: './src/app.js',
     output: {
         path: './dist',
-        filename: 'js/[name]-[chunkhash].js',
-        publicPath: 'http://cdn.com/'
+        filename: 'js/[name].bundle.js'
     },
+    module: {
+        loaders: [{
+                test: /\.js$/,
+                loader: 'babel',
+                include: path.resolve(__dirname, 'src'),
+                exclude: path.resolve(__dirname, 'node_modules'),
+                query: {
+                    presets: ['latest']
+                }
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css?importLoaders=1!postcss'
+            },
+            {
+                test: /\.less$/,
+                loader: 'style!css!postcss!less'
+            }
+        ]
+    },
+    postcss: [
+        require('autoprefixer')({
+            browsers: ['last 5 versions']
+        })
+    ],
     plugins: [
         new htmlWebpackPlugin({
+            filename: 'index.html',
             template: 'index.html',
-            filename: 'a.html',
-            inject: false,
-            title: 'this is a.html',
-            excludeChunks: ['b', 'c']
-        }),
-        new htmlWebpackPlugin({
-            template: 'index.html',
-            filename: 'b.html',
-            inject: false,
-            title: 'this is b.html',
-            excludeChunks: ['a', 'c']
-        }),
-        new htmlWebpackPlugin({
-            template: 'index.html',
-            filename: 'c.html',
-            inject: false,
-            title: 'this is c.html',
-            excludeChunks: ['a', 'b']
-        })        
+            inject: 'body'
+        })
     ]
 
 }
