@@ -25,6 +25,10 @@ module.exports = {
             {
                 test: /\.less$/,
                 loader: 'style!css!postcss!less'
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style!css!postcss!sass'
             }
         ]
     },
