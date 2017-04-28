@@ -39,9 +39,10 @@ module.exports = {
                 loader: 'style!css!postcss!sass'
             },
             {
-                test: /\.png|jpg|gif|svg$/i,
-                loader: 'file-loader',
+                test: /\.png|jpg|gif|svg$/i, // image 可用 file-loader 和 url-loader image-loader 处理
+                loader: 'url-loader',
                 query: {
+                    limit: 20000,
                     name: 'assets/[name]-[hash:5].[ext]'
                 }
             }
