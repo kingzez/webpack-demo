@@ -19,6 +19,10 @@ module.exports = {
                 }
             },
             {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
                 test: /\.css$/,
                 loader: 'style!css?importLoaders=1!postcss'
             },
