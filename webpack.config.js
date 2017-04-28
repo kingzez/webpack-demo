@@ -37,6 +37,13 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: 'style!css!postcss!sass'
+            },
+            {
+                test: /\.png|jpg|gif|svg$/i,
+                loader: 'file-loader',
+                query: {
+                    name: 'assets/[name]-[hash:5].[ext]'
+                }
             }
         ]
     },
