@@ -40,11 +40,10 @@ module.exports = {
             },
             {
                 test: /\.png|jpg|gif|svg$/i, // image 可用 file-loader 和 url-loader image-loader 处理
-                loader: 'url-loader',
-                query: {
-                    limit: 20000,
-                    name: 'assets/[name]-[hash:5].[ext]'
-                }
+                loaders: [
+                    'url-loader?limit=1000&name=assets/[name]-[hash:5].[ext]',
+                    'image-webpack'
+                    ],
             }
         ]
     },
