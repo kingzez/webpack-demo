@@ -19,12 +19,31 @@ module.exports = {
                 }
             },
             {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
+                test: /\.tpl/,
+                loader: 'ejs-loader'
+            },
+            {
                 test: /\.css$/,
                 loader: 'style!css?importLoaders=1!postcss'
             },
             {
                 test: /\.less$/,
                 loader: 'style!css!postcss!less'
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style!css!postcss!sass'
+            },
+            {
+                test: /\.png|jpg|gif|svg$/i, // image 可用 file-loader 和 url-loader image-loader 处理
+                loaders: [
+                    'url-loader?limit=1000&name=assets/[name]-[hash:5].[ext]',
+                    'image-webpack'
+                    ]
             }
         ]
     },
